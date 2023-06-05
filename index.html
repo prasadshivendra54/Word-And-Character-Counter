@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Counter</title>
+
+    <style>
+        h5{
+            text-align: end;
+        }
+        body{
+            background-color: rgb(233, 149, 15);
+            padding: 30px 100px;
+        }
+        h1{
+            background-color: transparent;
+            text-align: center;
+            font-size: 50px;
+            font-weight: bold;
+            padding: 10px;
+            margin: 0px;
+        }
+        #textarea{
+            width: 99.6%;
+            background-color: transparent;
+            font-size: xx-large;
+            font-weight: bold;
+        }
+        p{
+            background-color: transparent;
+            text-align: center;
+            text-align: center;
+            font-size: 50px;
+            font-weight: bold;
+            padding: 10px;
+            margin: 0px;
+        }
+    </style>
+</head>
+<body>
+    <h5>TechStudioBazaar</h5>
+
+    <h1>Word And Character Counter</h1>
+
+    <textarea name="textarea" id="textarea" cols="30" rows="10"></textarea>
+    <p>
+        <span id="word">0</span> Word And 
+        <span id="char">0</span> Charecters
+    </p>
+
+    <script>
+        let textarea = document.getElementById("textarea");
+
+        textarea.addEventListener("input", function(){
+            let text = this.value;
+            let char = text.length;
+            document.getElementById("char").innerHTML = char;
+
+            text = text.trim();
+            let words = text.split(" ");
+            let clear = words.filter(function(elm){
+                return elm != "";
+            })
+            document.getElementById("word").innerHTML = clear.length;
+        })
+    </script>
+</body>
+</html>
